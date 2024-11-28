@@ -326,3 +326,7 @@ GROUP BY EXTRACT(MONTH FROM purchase_at) = 11; -- 11月銷售
 
 -- 6-5. 查詢：計算 11 月份有預約課程的會員人數（需使用 Distinct，並用 created_at 和 status 欄位統計）
 -- 顯示須包含以下欄位： 預約會員人數
+SELECT 
+	DISTINCT COUNT(user_id) AS 預約會員人數
+FROM "COURSE_BOOKING" 
+WHERE EXTRACT(MONTH FROM created_at)  = 11 AND status <>  '課程已取消';
